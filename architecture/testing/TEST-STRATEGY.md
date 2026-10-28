@@ -71,7 +71,7 @@ A expectativa e que essa suite seja:
 
 Comando:
 
-`mvn test -Pintegration-tests -Denv=128`
+`mvn test -Pintegration-tests -Denv=<ambiente>`
 
 Esse profile pode acessar:
 
@@ -88,7 +88,7 @@ O grupo `effectful` continua excluido.
 
 Comando:
 
-`mvn test -Peffectful-tests -Denv=128 -DpermitirOperacoesComEfeito=true`
+`mvn test -Peffectful-tests -Denv=<ambiente> -DpermitirOperacoesComEfeito=true`
 
 Esses testes podem:
 

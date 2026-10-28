@@ -53,10 +53,15 @@ public final class QuitacaoPersistenceVerificationIT {
         long accountId = requireLong("quitacao.verify.account");
         long ticketId = requireLong("quitacao.verify.boleto");
 
-        String csvProperty = System.getProperty(
-                "quitacao.verify.csv",
-                "target/quitacao-mass-results/simulacao-quitacao-mass-real-20261028-185731.csv"
-        );
+        String csvProperty = System.getProperty("quitacao.verify.csv");
+
+        if (csvProperty == null || csvProperty.trim().isEmpty()) {
+            throw new IllegalStateException(
+                    "Informe -Dquitacao.verify.csv=<arquivo-de-evidencia>."
+            );
+        }
+
+        csvProperty = csvProperty.trim();
 
         Path csv = Paths.get(csvProperty);
 

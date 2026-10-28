@@ -148,7 +148,7 @@ Utilizar secret store corporativo para:
 
 ## Evidencias
 
-Publicar Allure como artefato da pipeline sem versionar resultados no Git.
+A V1 mantém um snapshot estático e controlado do Allure em `docs/allure-v1-report/`. Na evolução de CI/CD, o relatório deverá também ser publicado automaticamente como artefato da pipeline.
 
 ---
 

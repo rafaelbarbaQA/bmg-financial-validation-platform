@@ -1,8 +1,28 @@
-# BMG QA Automation
+# Financial Validation Platform — QA Automation
 
 Framework Java de automação e validação de fluxos financeiros, criado para suportar cenários de pagamento, compra, quitação, processamento batch, snapshots financeiros e integrações com SQL Server e serviços SOAP.
 
 O projeto foi estruturado para separar **regra de negócio**, **orquestração**, **infraestrutura** e **testes**, permitindo evoluir o framework de forma segura, reutilizável e escalável.
+
+## V1 validada
+
+A primeira versão corporativa da plataforma possui três fluxos financeiros validados em ambiente controlado:
+
+| Fluxo | Escopo validado | Status |
+|---|---|---|
+| Compra Real | Execução Pré-Batch e persistência | ✅ Validado |
+| Pagamento Mínimo Real | Execução Pré-Batch | ✅ Validado |
+| Quitação Antecipada | Simulação, geração do boleto e persistência SQL | ✅ Validado |
+
+As evidências consolidadas desta versão estão disponíveis em:
+
+```text
+docs/allure-v1-report/
+```
+
+Esse relatório representa um snapshot estático da V1 para consulta e apresentação.
+
+Os fluxos Batch e Pós-Batch fazem parte da arquitetura da plataforma e continuam evoluindo de forma incremental.
 
 ---
 
@@ -254,6 +274,29 @@ A simulação é considerada uma operação de leitura.
 
 A geração de boleto é considerada uma operação com efeito e exige autorização explícita antes da chamada ao serviço externo.
 
+### Critérios de sucesso
+
+A validação da quitação considera:
+
+```text
+Simulação
+  CodRetorno = 0
+  TotalAntecipacao > 0
+
+        ↓
+
+Geração
+  CodRetorno = 0
+  IdBoleto > 0
+
+        ↓
+
+Persistência
+  boleto localizado na base esperada
+```
+
+O registro bancário externo não faz parte do critério de sucesso utilizado pelo framework.
+
 ---
 
 ## Segurança de operações com efeito
@@ -272,7 +315,7 @@ Operações capazes de alterar sistemas externos devem exigir:
 
 Sem essa autorização, a operação deve ser bloqueada.
 
-Alguns fluxos financeiros legados também podem exigir:
+Alguns fluxos financeiros existentes também podem exigir:
 
 ```text
 -Dfinancial.mode=REAL
@@ -318,7 +361,7 @@ databaseAccessor.inTransaction(connection -> {
 
 O `DatabaseAccessor` permanece genérico e não contém regras financeiras nem bloqueio effectful.
 
-Runners operacionais antigos em `src/test/tools` ainda podem possuir acessos JDBC legados e devem ser modernizados gradualmente.
+Alguns runners operacionais em `src/test/tools` seguem uma arquitetura anterior e estão em modernização progressiva.
 
 ---
 
@@ -333,7 +376,7 @@ src/main/resources/config.example.properties
 Crie localmente um arquivo de ambiente, por exemplo:
 
 ```text
-src/main/resources/config-128.properties
+src/main/resources/config-<ambiente>.properties
 ```
 
 Arquivos reais `config-*.properties` são ignorados pelo Git.
@@ -388,7 +431,7 @@ e2e
 ### Testes de integração
 
 ```bash
-mvn test -Pintegration-tests -Denv=128
+mvn test -Pintegration-tests -Denv=<ambiente>
 ```
 
 Esse profile pode acessar recursos externos como banco, SOAP e UI, mas continua excluindo operações classificadas como `effectful`.
@@ -396,7 +439,7 @@ Esse profile pode acessar recursos externos como banco, SOAP e UI, mas continua 
 ### Testes com efeito
 
 ```bash
-mvn test -Peffectful-tests -Denv=128 -DpermitirOperacoesComEfeito=true
+mvn test -Peffectful-tests -Denv=<ambiente> -DpermitirOperacoesComEfeito=true
 ```
 
 Use somente quando houver intenção explícita de executar operações que alteram sistemas externos.
@@ -439,7 +482,7 @@ src/test/java/com/automation
 
 `src/test/tools` contém runners operacionais e utilitários de massa.
 
-Parte desses runners é legado e será modernizada gradualmente sem bloquear a evolução do núcleo.
+Parte desses runners segue uma arquitetura anterior e será modernizada gradualmente sem bloquear a evolução do núcleo.
 
 ---
 
@@ -477,6 +520,16 @@ evidencias/
 *.bak
 .financial-snapshots/
 ```
+
+Resultados de execução continuam sendo temporários e não devem ser versionados diretamente.
+
+Como exceção, uma versão estática e controlada do relatório oficial da V1 é mantida em:
+
+```text
+docs/allure-v1-report/
+```
+
+Essa pasta é tratada como documentação e evidência oficial da versão, e não como diretório operacional de execução.
 
 ---
 
@@ -535,7 +588,7 @@ Profiles Maven não substituem Guards no ponto real de mutação.
 
 ### Evolução gradual
 
-Código legado não precisa ser reescrito inteiro de uma vez.
+Componentes existentes não precisam ser reescritos inteiramente de uma vez.
 
 A estratégia é modernizar progressivamente sem perder funcionalidade.
 
@@ -575,6 +628,15 @@ Confirme que não existem no commit:
 ## Estado atual
 
 A base principal está preparada para evolução via Git, com:
+
+### Evidências da V1
+
+- compra real Pré-Batch validada;
+- pagamento mínimo real Pré-Batch validado;
+- quitação antecipada validada desde a simulação até a persistência do boleto;
+- relatório Allure estático publicado em `docs/allure-v1-report/`;
+
+A plataforma também possui:
 
 - arquitetura financeira reorganizada;
 - snapshots separados entre `application` e `infrastructure`;

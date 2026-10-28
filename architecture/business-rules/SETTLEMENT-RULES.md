@@ -65,3 +65,19 @@ O Guard deve estar no componente que efetivamente envia a operacao capaz de gera
 Mais detalhes:
 
 [Operacoes Effectful](../security/EFFECTFUL-OPERATIONS.md)
+
+## Critério de sucesso da quitação
+
+A simulação é considerada válida quando:
+
+- `CodRetorno = 0`;
+- `TotalAntecipacao > 0`.
+
+A geração do boleto é considerada bem-sucedida quando:
+
+- `CodRetorno = 0`;
+- `IdBoleto > 0`.
+
+A persistência pode ser confirmada posteriormente por consulta read-only ao SQL Server.
+
+`FlagRegistrado` e o registro bancário externo não fazem parte do critério de sucesso adotado pelo framework.

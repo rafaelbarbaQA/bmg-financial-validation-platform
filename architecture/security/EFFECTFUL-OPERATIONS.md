@@ -61,7 +61,7 @@ Testes effectful permanecem excluidos.
 
 Execucao explicita:
 
-`mvn test -Peffectful-tests -Denv=128 -DpermitirOperacoesComEfeito=true`
+`mvn test -Peffectful-tests -Denv=<ambiente> -DpermitirOperacoesComEfeito=true`
 
 ### Protecao no codigo
 
@@ -129,7 +129,7 @@ Isso reduz a possibilidade de bypass acidental.
 
 ## financial.mode
 
-Alguns fluxos legados tambem utilizam:
+Alguns fluxos existentes tambem utilizam:
 
 `-Dfinancial.mode=REAL`
 
@@ -181,7 +181,7 @@ Nunca devem ficar:
 
 ---
 
-## Runners legados
+## Runners operacionais existentes
 
 Alguns runners em `src/test/tools` ainda possuem fluxos transacionais proprios.
 
