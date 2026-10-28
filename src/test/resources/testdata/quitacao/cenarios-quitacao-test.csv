@@ -1,0 +1,3 @@
+nome;idConta;tipoCorrespondencia;ativo
+Quitação teste local;123456;1;true
+Quitação teste inativa;654321;1;false

@@ -1,0 +1,1 @@
+SELECT TOP (1) Id_EventoPagamento AS ID_EVENTO_PAGAMENTO, Status AS STATUS_PAGAMENTO FROM EventosExternosPagamentos WHERE Id_Conta = ? AND NossoNumero = ? AND Id_Autorizacao = ? AND Id_Operacao = ? AND CONVERT(date, DataPagamento) = ? AND ValorPago = ? ORDER BY Id_EventoPagamento DESC

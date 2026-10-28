@@ -1,0 +1,1 @@
+SELECT TOP (1) Id_Conta, Id_Boleto FROM BoletosEmitidos WHERE Id_Conta = ? AND Id_Boleto = ?

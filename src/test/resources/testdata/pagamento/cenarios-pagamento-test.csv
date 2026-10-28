@@ -1,0 +1,3 @@
+nome;idBoleto;modalidade;ativo
+Pagamento teste ativo;123456;TOTAL;true
+Pagamento teste inativo;654321;TOTAL;false

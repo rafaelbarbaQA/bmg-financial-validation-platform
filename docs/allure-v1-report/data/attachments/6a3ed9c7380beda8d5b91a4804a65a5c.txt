@@ -1,0 +1,7 @@
+GERACAO DO BOLETO
+------------------------------
+IdBoleto................: 571717682
+CodRetorno..............: 0
+Descricao...............: Antecipação realizada com sucesso
+IdLog...................: 20261028185752766
+Registro bancario.......: NAO APLICAVEL AO FLUXO

@@ -1,0 +1,2 @@
+idConta;idBoleto;cenario;valorMinimo;dataPagamento;idEventoPagamento;status;executadoEm;mensagem
+12101787;570003863;MINIMUM;70.6300;2026-08-01;461282001;SUCCESS;2026-10-28T19:13:48.072965200Z;Pagamento real inserido em EventosExternosPagamentos.

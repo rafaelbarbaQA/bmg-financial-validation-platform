@@ -1,0 +1,71 @@
+# Maven
+target/
+*.class
+
+# Allure
+allure-results/
+allure-report/
+.allure/
+
+# Relatorios e evidencias
+test-output/
+screenshots/
+*.log
+evidencias/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configuracoes locais e credenciais
+.env
+*.env
+src/main/resources/config.properties
+src/main/resources/config-*.properties
+src/test/resources/config.properties
+src/test/resources/config-*.properties
+
+# Perfil ficticio usado pelos testes automatizados
+!src/test/resources/config-test.properties
+
+# Massas reais especificas de cada ambiente
+src/test/resources/testdata/quitacao/cenarios-quitacao.csv
+src/test/resources/testdata/quitacao/cenarios-quitacao-*.csv
+
+# Massa ficticia usada pelos testes locais
+!src/test/resources/testdata/quitacao/cenarios-quitacao-test.csv
+
+# Massas locais de pagamento
+src/test/resources/testdata/pagamento/cenarios-pagamento-*.csv
+!src/test/resources/testdata/pagamento/cenarios-pagamento-test.csv
+
+# Massas operacionais locais
+/src/test/resources/massas/
+
+# Snapshots financeiros locais
+.financial-snapshots/
+
+# Drivers locais
+Drivers/
+
+# Backups locais
+*.backup
+*.backup-*
+*.bak
+*.bak-*
+*.before-*
+
+# Pacotes locais do projeto
+/projeto-qa.zip

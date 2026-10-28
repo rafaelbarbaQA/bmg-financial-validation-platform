@@ -1,0 +1,3 @@
+﻿nome;idConta;tipoCorrespondencia;ativo
+Exemplo conta principal;1000001;1;true
+Exemplo conta inativa;1000002;1;false

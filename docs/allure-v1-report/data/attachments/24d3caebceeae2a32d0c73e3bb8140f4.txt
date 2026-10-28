@@ -1,0 +1,10 @@
+PAGAMENTO MINIMO - RESULTADO
+
+IdConta: 12101787
+IdBoleto: 570003863
+Valor minimo: 70.6300
+Data pagamento: 2026-08-01
+IdEventoPagamento: 461282001
+Executado em: 2026-10-28T19:13:48.072965200Z
+Sucesso: true
+Mensagem: Pagamento real inserido em EventosExternosPagamentos.

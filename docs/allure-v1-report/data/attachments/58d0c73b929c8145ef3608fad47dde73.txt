@@ -1,0 +1,1 @@
+SELECT Id_Boleto AS ID_BOLETO, Id_TipoBoleto AS ID_TIPO_BOLETO, Id_Conta AS ID_CONTA, ValorBoleto AS VALOR_BOLETO, CONVERT(varchar(30), NossoNumero) AS NOSSO_NUMERO FROM BoletosEmitidos WHERE Id_Boleto = ?

@@ -1,0 +1,10 @@
+IdBoleto: 570003863
+IdConta: 12101787
+TipoBoleto: FATURA_MENSAL
+Modalidade: TOTAL
+NossoNumero: 9268050273
+ValorPagamento: 70.6300
+DataPagamento: 2026-08-01
+IdAutorizacao: 9999
+IdOperacao: 99
+Status: 0

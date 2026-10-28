@@ -1,0 +1,16 @@
+SIMULACAO DA QUITACAO
+------------------------------
+IdConta.................: 2227197
+CodRetorno..............: 0
+Descricao...............: Ok
+TransacoesPeriodo.......: R$ 0.00
+TransacoesAntecipadas...: R$ 0.00
+AjusteCredito...........: R$ 0.00
+AjusteDebito............: R$ 0.00
+Encargos................: R$ 271.00
+IOF.....................: R$ 16.03
+SaldoFaturaAnterior.....: R$ 7031.87
+TotalDesconto...........: R$ 0.00
+AbatimentoJuros.........: R$ 0.00
+ValorPagoMes............: R$ 340.61
+TOTAL ANTECIPACAO........: R$ 6978.29

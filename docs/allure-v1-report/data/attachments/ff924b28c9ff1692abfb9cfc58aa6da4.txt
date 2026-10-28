@@ -1,0 +1,10 @@
+QUITACAO ANTECIPADA - RESULTADO EXECUTIVO
+========================================
+Resultado geral........: APROVADO
+IdConta................: 2227197
+IdBoleto...............: 571717682
+Total antecipacao......: R$ 6978.29
+Simulacao..............: SUCESSO
+Geracao................: SUCESSO
+Persistencia SQL.......: CONFIRMADA
+Registro bancario......: NAO APLICAVEL AO FLUXO
