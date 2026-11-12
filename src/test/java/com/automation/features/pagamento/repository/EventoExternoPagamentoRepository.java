@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
@@ -183,7 +184,7 @@ public final class EventoExternoPagamentoRepository {
                 Timestamp.valueOf(
                         pagamento
                                 .getDataPagamento()
-                                .atStartOfDay()
+                                .atTime(obterHoraPagamento())
                 );
 
         BigDecimal nossoNumero =
@@ -230,6 +231,30 @@ public final class EventoExternoPagamentoRepository {
         );
 
         return idEventoPagamento;
+    }
+
+    private LocalTime obterHoraPagamento() {
+
+        String valor =
+                System.getProperty(
+                        "horaPagamento",
+                        "00:00:00"
+                );
+
+        try {
+            return LocalTime.parse(
+                    valor.trim()
+            );
+
+        } catch (DateTimeParseException exception) {
+
+            throw new IllegalArgumentException(
+                    "A propriedade -DhoraPagamento deve estar "
+                            + "no formato HH:mm:ss. Valor informado: "
+                            + valor,
+                    exception
+            );
+        }
     }
 
     @Step("Consultar evento externo de pagamento: {idEventoPagamento}")
