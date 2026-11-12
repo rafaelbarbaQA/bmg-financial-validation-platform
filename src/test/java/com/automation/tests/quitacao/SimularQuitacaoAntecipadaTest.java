@@ -22,14 +22,14 @@ import io.qameta.allure.Story;
 
 import org.testng.annotations.Test;
 
-@Epic("QuitaÃ§Ã£o")
-@Feature("QuitaÃ§Ã£o Antecipada")
+@Epic("Quitação")
+@Feature("Quitação Antecipada")
 @Owner("QA Automation")
 public class SimularQuitacaoAntecipadaTest {
 
     @Test(
             description =
-                    "Deve simular a quitaÃ§Ã£o antecipada com sucesso",
+                    "Deve simular a quitação antecipada com sucesso",
             groups = {
                     "integration",
                     "soap",
@@ -38,11 +38,11 @@ public class SimularQuitacaoAntecipadaTest {
                     "readonly"
             }
     )
-    @Story("SimulaÃ§Ã£o de quitaÃ§Ã£o antecipada")
+    @Story("Simulação de quitação antecipada")
     @Severity(SeverityLevel.CRITICAL)
     @Description(
-            "Realiza a simulaÃ§Ã£o de quitaÃ§Ã£o antecipada via SOAP "
-                    + "e valida os dados retornados pelo serviÃ§o."
+            "Realiza a simulação de quitação antecipada via SOAP "
+                    + "e valida os dados retornados pelo serviço."
     )
     public void deveSimularQuitacaoAntecipadaComSucesso()
             throws Exception {

@@ -13,7 +13,7 @@ public class SimularQuitacaoAntecipadaValidator {
     private static final int CODIGO_RETORNO_SUCESSO = 0;
     private static final String DESCRICAO_RETORNO_SUCESSO = "Ok";
 
-    @Step("Validar resposta da simulaÃ§Ã£o de quitaÃ§Ã£o")
+    @Step("Validar resposta da simulação de quitação")
     public void validar(
             SimularQuitacaoAntecipadaResponse response
     ) {
@@ -29,18 +29,18 @@ public class SimularQuitacaoAntecipadaValidator {
         validarSaldoFaturaAnterior(response);
     }
 
-    @Step("Validar que a resposta nÃ£o estÃ¡ nula")
+    @Step("Validar que a resposta não está nula")
     private void validarRespostaPreenchida(
             SimularQuitacaoAntecipadaResponse response
     ) {
 
         Assert.assertNotNull(
                 response,
-                "A resposta da simulaÃ§Ã£o nÃ£o pode ser nula."
+                "A resposta da simulação não pode ser nula."
         );
     }
 
-    @Step("Validar cÃ³digo de retorno igual a zero")
+    @Step("Validar código de retorno igual a zero")
     private void validarCodigoRetorno(
             SimularQuitacaoAntecipadaResponse response
     ) {
@@ -48,36 +48,36 @@ public class SimularQuitacaoAntecipadaValidator {
         Assert.assertEquals(
                 response.getCodRetorno(),
                 CODIGO_RETORNO_SUCESSO,
-                "Erro ao simular quitaÃ§Ã£o: "
+                "Erro ao simular quitação: "
                         + response.getDescricaoRetorno()
         );
     }
 
-    @Step("Validar descriÃ§Ã£o de retorno")
+    @Step("Validar descrição de retorno")
     private void validarDescricaoRetorno(
             SimularQuitacaoAntecipadaResponse response
     ) {
 
         Assert.assertNotNull(
                 response.getDescricaoRetorno(),
-                "A descriÃ§Ã£o de retorno nÃ£o pode ser nula."
+                "A descrição de retorno não pode ser nula."
         );
 
         Assert.assertEquals(
                 response.getDescricaoRetorno(),
                 DESCRICAO_RETORNO_SUCESSO,
-                "A descriÃ§Ã£o da simulaÃ§Ã£o estÃ¡ diferente do esperado."
+                "A descrição da simulação está diferente do esperado."
         );
     }
 
-    @Step("Validar total da antecipaÃ§Ã£o maior que zero")
+    @Step("Validar total da antecipação maior que zero")
     private void validarTotalAntecipacao(
             SimularQuitacaoAntecipadaResponse response
     ) {
 
         Assert.assertNotNull(
                 response.getTotalAntecipacao(),
-                "O TotalAntecipacao nÃ£o pode ser nulo."
+                "O TotalAntecipacao não pode ser nulo."
         );
 
         Assert.assertTrue(
@@ -88,21 +88,21 @@ public class SimularQuitacaoAntecipadaValidator {
         );
     }
 
-    @Step("Validar saldo da fatura anterior nÃ£o negativo")
+    @Step("Validar saldo da fatura anterior não negativo")
     private void validarSaldoFaturaAnterior(
             SimularQuitacaoAntecipadaResponse response
     ) {
 
         Assert.assertNotNull(
                 response.getSaldoFaturaAnterior(),
-                "O SaldoFaturaAnterior nÃ£o pode ser nulo."
+                "O SaldoFaturaAnterior não pode ser nulo."
         );
 
         Assert.assertTrue(
                 response
                         .getSaldoFaturaAnterior()
                         .compareTo(BigDecimal.ZERO) >= 0,
-                "O SaldoFaturaAnterior nÃ£o pode ser negativo."
+                "O SaldoFaturaAnterior não pode ser negativo."
         );
     }
 }
